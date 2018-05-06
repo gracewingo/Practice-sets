@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dashboard Experiment 1</title>
+	<style>    </style> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script> 
+	$(document).ready(function() {
+		$('html').dblclick(function() {
+			alert("Hey, World!");
+		});//end double click 
+		$("a").mouseover(function(){
+			var message = "<p>You moused over a link!</p>";
+			$(".main").append(message);
+		}); //end mouseover 
+		$().click(function(event) {
+			var xPos = event.pageX;
+			var yPos = event.pageY;
+			alert("X coordinate is: " + xPos + " and the Y coordinate is: " + yPos);
+		}); //end click 
+		$("#disable").(function() {
+			$(document).off('mouseover');
+		});//
+	}); //end ready	
+		
+</script>
+</head>
+
+<body>
+<section>
+	<p><a href="#">Hello, World!</a></p>
+	<div class="main">We are building web applications and websites!</div>
+	<form>
+		<input type="button" value="Disable X, Y Coordinate" id="disable">
+	</form>
+
+</section>
+
+
+</body>
+</html>
