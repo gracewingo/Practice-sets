@@ -20,7 +20,7 @@ function palindrome(str) {
   	return true;
   } else {
 	return "Not a palindrome";
-}
+ }
 }
 console.log(palindrome("eye"));
 
