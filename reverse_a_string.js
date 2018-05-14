@@ -16,7 +16,7 @@ function palindrome(str) {
   string3 = string2.split("");
   string4 = string3.reverse();
   string5 = string4.join("");
-  if (str === string5) {
+  if (string1 === string5) {
   	return true;
   } else {
 	return "Not a palindrome";
