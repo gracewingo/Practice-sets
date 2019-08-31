@@ -1,0 +1,125 @@
+<DOCTYPE html>
+<html>
+<title>To Do List App</title>
+<head>
+<style>
+  .add-item {
+    height: 40px;
+    margin: 10px;
+  }
+  
+  .remove-item{
+    height: 40px;
+    margin: 10px;
+    position: relative;
+    bottom: 60px;
+    left: 60px;
+  }
+
+  .list-items {
+    margin: 10px;
+    padding-bottom: 10px;
+  }
+
+  .new-textField {
+    margin-left: 5px;
+
+  }
+</style>
+</head>
+<body>
+  <div id ="container">
+      <h2 class="header">To Do List App</h2>
+
+      <form id="form">
+        <div class="list-items">
+        <input type="checkbox">
+        <input type="text">
+      </div>
+      </form>
+
+       <div id="addItem">
+          <img src="plusIcon.png" class="add-item">
+        </div>
+
+        <div id="removeItem">
+          <img src="xIcon.png" class="remove-item">
+        </div>
+  </div>
+<script>
+
+    window.onload = buildForm;
+
+    function buildForm(){
+      addListeners();
+    }
+
+    function addListeners(){
+      var plusButton = document.getElementsByClassName("add-item");
+      plusButton[0].addEventListener("click", addItem);
+      plusButton[0].addEventListener("mouseenter", addItemHover);
+      var remove = document.getElementsByClassName("remove-item");
+      remove[0].addEventListener("click", removeItem);
+      remove[0].addEventListener("mouseenter", removeItemHover);
+
+    } 
+
+    function addItemHover(e){
+      let hoverImg = "bluePlusIcon.png"
+      let origImg = "plusIcon.png"
+      e.target.src = hoverImg;
+      setTimeout(function(){
+        e.target.src = origImg;
+      },1000)
+    }
+
+    function addItem(e){
+      console.dir(e);
+      //everytime you hit the plus button, add a input field and checkbox 
+      let form = document.getElementById("form");
+      let newDiv = document.createElement("div");
+      let newCheckBox = document.createElement("input");
+      let newTextInput = document.createElement("input");
+
+      newDiv.classList.add("list-items");
+      form.appendChild(newDiv);
+      newDiv.appendChild(newCheckBox);
+      newDiv.appendChild(newTextInput);
+      newCheckBox.setAttribute("type","checkbox");
+      newTextInput.setAttribute("type","text");
+      newTextInput.classList.add("new-textField")
+
+    }
+      
+    function removeItem(e){
+      //remove the last input field from the UI when x icon is clicked 
+      const form = document.getElementById("form");
+      if (form.lastElementChild){
+        form.removeChild(form.lastElementChild);
+      } else {
+        let header = document.getElementsByClassName("header");
+        header[0].innerHTML = "You've completed all your to-do's! Go you!!!"
+      }
+    }
+
+    function removeItemHover(e){
+        let hoverImg = "blackXIcon.png";
+        let origImg = "xIcon.png";
+
+        e.target.src = hoverImg;
+        setTimeout(function(){
+            e.target.src = origImg;
+        },1000)
+    }
+
+
+ 
+  </script>
+</body>
+</html>
+
+
+
+
+
+
